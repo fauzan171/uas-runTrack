@@ -6,3 +6,6 @@ dist
 
 # folder contoh mata kuliah, bukan bagian proyek UAS
 wadv_p13_examples/
+
+# laporan UAS, tidak di-push ke repo
+LAPORAN_UAS.md

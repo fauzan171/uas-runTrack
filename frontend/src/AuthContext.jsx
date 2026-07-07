@@ -9,7 +9,6 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // kalau ada token tersimpan, anggap user masih login
     const savedUser = localStorage.getItem('user')
     if (savedUser && token) {
       setUser(JSON.parse(savedUser))

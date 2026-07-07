@@ -19,8 +19,8 @@ model User {
 
 model RunSession {
   id       Int      @id @default(autoincrement())
-  distance Float    // dalam km
-  duration Int      // dalam menit
+  distance Float
+  duration Int
   date     DateTime
   notes    String   @default("")
   userId   Int

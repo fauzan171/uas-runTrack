@@ -1,7 +1,6 @@
 export default function StatsCard({ stats }) {
   if (!stats) return null
 
-  // pace dalam menit per km, format jadi menit:detik
   const paceMin = Math.floor(stats.avgPace)
   const paceSec = Math.round((stats.avgPace - paceMin) * 60)
   const paceStr = `${paceMin}:${String(paceSec).padStart(2, '0')}`

@@ -16,12 +16,10 @@ app.get('/', (req, res) => {
 app.use('/api/auth', authRoutes)
 app.use('/api/runs', runRoutes)
 
-// handler untuk route yang tidak ditemukan
 app.use((req, res) => {
   res.status(404).json({ message: 'Endpoint tidak ditemukan' })
 })
 
-// error handler
 app.use((err, req, res, next) => {
   console.error(err)
   res.status(500).json({ message: 'Terjadi kesalahan server' })

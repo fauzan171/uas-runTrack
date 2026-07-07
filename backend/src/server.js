@@ -6,7 +6,6 @@ const prisma = new PrismaClient()
 const PORT = process.env.PORT || 4000
 
 async function main() {
-  // tes koneksi database
   await prisma.$connect()
   console.log('Database terhubung')
 

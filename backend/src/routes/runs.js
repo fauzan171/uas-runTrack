@@ -4,7 +4,6 @@ const router = express.Router()
 const { authenticate } = require('../middlewares/auth')
 const { getRuns, createRun, updateRun, deleteRun, getStats } = require('../controllers/runController')
 
-// semua route di sini butuh token JWT
 router.use(authenticate)
 
 router.get('/stats', getStats)

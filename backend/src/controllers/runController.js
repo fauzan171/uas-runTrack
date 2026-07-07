@@ -1,6 +1,5 @@
 const prisma = require('../lib/prisma')
 
-// GET /api/runs -> semua sesi milik user yang login
 async function getRuns(req, res) {
   try {
     const runs = await prisma.runSession.findMany({
@@ -23,7 +22,6 @@ async function getRuns(req, res) {
   }
 }
 
-// POST /api/runs -> catat sesi baru
 async function createRun(req, res) {
   try {
     const { distance, duration, date, notes } = req.body
@@ -57,7 +55,6 @@ async function createRun(req, res) {
   }
 }
 
-// PUT /api/runs/:id -> edit sesi
 async function updateRun(req, res) {
   try {
     const id = parseInt(req.params.id)
@@ -95,7 +92,6 @@ async function updateRun(req, res) {
   }
 }
 
-// DELETE /api/runs/:id -> hapus sesi
 async function deleteRun(req, res) {
   try {
     const id = parseInt(req.params.id)
@@ -116,7 +112,6 @@ async function deleteRun(req, res) {
   }
 }
 
-// GET /api/runs/stats -> statistik agregat
 async function getStats(req, res) {
   try {
     const runs = await prisma.runSession.findMany({
@@ -126,7 +121,6 @@ async function getStats(req, res) {
     const totalSessions = runs.length
     const totalKm = runs.reduce((sum, r) => sum + r.distance, 0)
     const totalMinutes = runs.reduce((sum, r) => sum + r.duration, 0)
-    // pace rata-rata dalam menit per km
     const avgPace = totalKm > 0 ? totalMinutes / totalKm : 0
 
     return res.json({

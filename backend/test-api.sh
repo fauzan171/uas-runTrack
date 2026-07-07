@@ -1,7 +1,4 @@
 #!/bin/bash
-# Skrip test endpoint RunTrack API
-# Jalankan: bash test-api.sh  (pastikan server backend jalan di port 4000)
-#cara start server: npm run dev  (di folder backend)
 
 BASE=http://localhost:4000
 EMAIL="tester_$(date +%s)@mail.com"

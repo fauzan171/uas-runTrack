@@ -16,7 +16,6 @@ async function main() {
     },
   })
 
-  // hapus sesi lama user ini dulu biar seed idempoten
   await prisma.runSession.deleteMany({ where: { userId: user.id } })
 
   const contoh = [
