@@ -1,0 +1,8 @@
+node_modules
+dist
+*.log
+.env
+.DS_Store
+
+# folder contoh mata kuliah, bukan bagian proyek UAS
+wadv_p13_examples/
