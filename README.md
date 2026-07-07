@@ -2,6 +2,22 @@
 
 Aplikasi buat nyatet sesi lari dan ngeliat progres latihan. Dibuat untuk UAS Web Advanced Development.
 
+## Akses & Login
+
+Setelah server jalan, buka di browser:
+
+```
+http://localhost:5173
+```
+
+**Akun demo (hasil seed):**
+
+| Email | Password |
+|-------|----------|
+| `andi@runtrack.app` | `password123` |
+
+Bisa langsung login pake akun di atas (udah ada 4 sesi lari contoh), atau daftar akun baru lewat halaman Register.
+
 ## Teknologi
 
 - **Backend:** Node.js + Express
@@ -21,6 +37,8 @@ uas/
 
 ## Cara Jalanin
 
+> Prasyarat: PostgreSQL berjalan di `localhost:5432`.
+
 ### 1. Database
 
 Bikin database dulu di PostgreSQL:
@@ -36,24 +54,13 @@ cd backend
 cp .env.example .env
 npm install
 npx prisma migrate dev
-npm run seed        # opsional, bikin user contoh
+npm run seed        # bikin user contoh (andi@runtrack.app)
 npm run dev
 ```
 
 Server jalan di `http://localhost:4000`.
 
-User hasil seed:
-- email: `andi@runtrack.app`
-- password: `password123`
-
-### 3. Test API (terminal)
-
-```bash
-cd backend
-bash test-api.sh
-```
-
-### 4. Frontend
+### 3. Frontend
 
 ```bash
 cd frontend
@@ -61,7 +68,14 @@ npm install
 npm run dev
 ```
 
-Buka `http://localhost:5173`. Fronten udah di-set proxy `/api` ke backend jadi gak ribet CORS.
+Buka `http://localhost:5173`. Frontend udah di-set proxy `/api` ke backend jadi gak ribet CORS.
+
+### 4. Test API (terminal)
+
+```bash
+cd backend
+bash test-api.sh
+```
 
 ## Endpoint
 
@@ -76,7 +90,3 @@ Buka `http://localhost:5173`. Fronten udah di-set proxy `/api` ke backend jadi g
 | GET | `/api/runs/stats` | JWT |
 
 Yang butuh JWT kirim header `Authorization: Bearer <token>`.
-
-## Penjelasan Detail
-
-Untuk laporan lengkap (deskripsi, skema data, pemenuhan requirement, hasil uji) baca [`LAPORAN_UAS.md`](./LAPORAN_UAS.md).
